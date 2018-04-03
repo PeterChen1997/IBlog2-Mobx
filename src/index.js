@@ -1,21 +1,28 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { ConnectedRouter } from 'react-router-redux'
-import store, { history } from './store'
-import App from './containers/App'
+import React from "react";
+import { render } from "react-dom";
+import DevTools from "mobx-react-devtools";
 
-import './index.css'
+import TodoList from "./components/TodoList";
+import TodoListModel from "./models/TodoListModel";
+import TodoModel from "./models/TodoModel";
 
-const target = document.querySelector('#root')
+const store = new TodoListModel();
 
 render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <div>
-        <App />
-      </div>
-    </ConnectedRouter>
-  </Provider>,
-  target
-)
+  <div>
+    <DevTools />
+    <TodoList store={store} />
+  </div>,
+  document.getElementById("root")
+);
+
+store.addTodo("Get Coffee");
+store.addTodo("Write simpler code");
+store.todos[0].finished = true;
+
+setTimeout(() => {
+  store.addTodo("Get a cookie as well");
+}, 2000);
+
+// playing around in the console
+window.store = store;
