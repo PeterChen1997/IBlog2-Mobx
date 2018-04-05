@@ -47,9 +47,18 @@ const Main = ({ mostViewedArticles, newestArticles }) => {
         </div>
       </div>
 
-      <h3 style={titleStyleObj}>最新发布</h3>
-        <ArticlesList articles={ newestArticles }/>
-      <h3 style={linkStyleObj} className="has-text-centered">>> 文章列表</h3>
+      <div className="columns">
+        <div className="column is-three-quarters">
+          <h3 style={titleStyleObj}>最新发布</h3>
+            <ArticlesList articles={ newestArticles }/>
+          <h3 style={linkStyleObj} className="has-text-centered">>> 文章列表</h3>
+        </div>
+
+        <div className="column">
+          <h3 style={titleStyleObj}>最新回答</h3>
+        </div>
+      </div>
+      
     </div>
   )
 };
