@@ -31,13 +31,13 @@ class Header extends Component {
     }
 
     return (
-      <nav className="navbar">
+      <nav className="navbar is-fixed-top">
         <div className="navbar-brand">
           <div className="navbar-item">
             <Link to="/"
               style={brandStyleObj}
               onClick={() => this.props.commonStore.setMenuIndex("home")}>
-              <p>晨阳再升</p>
+              <p>{ this.props.commonStore.appName }</p>
             </Link>
           </div>
         </div>

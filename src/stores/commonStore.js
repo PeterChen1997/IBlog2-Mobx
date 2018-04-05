@@ -2,8 +2,8 @@ import { observable, action, reaction } from 'mobx'
 
 class CommonStore {
 
-  @observable appName = '静心堂'
-  @observable appTitle = 'Adventure Park'
+  @observable appName = '好好学习'
+  @observable title = 'Adventure Park'
   @observable slogan = 'Stay hungry. Stay foolish'
   @observable token = window.localStorage.getItem('jwt')
   @observable appLoaded = true

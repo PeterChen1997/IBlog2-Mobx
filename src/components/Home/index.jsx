@@ -3,25 +3,20 @@ import Main from './Main';
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 
-@inject('commonStore')
+@inject('commonStore', 'articlesStore')
 @observer
 export default class Home extends Component {
-  componentDidMount() {
-  }
-
   render() {
     const { slogan, title } = this.props.commonStore
+    const { mostViewedArticles } = this.props.articlesStore
+
     return (
-      <div className="home-page">
+      <div>
         <Banner slogan={ slogan } title={ title } />
-
-        <div className="container page">
-          <div className="row">
-            <Main />
-          </div>
+        <div>
+          <Main mostViewedArticles={ mostViewedArticles.toJS() }/>
         </div>
-
       </div>
-    );
+    )
   }
 }

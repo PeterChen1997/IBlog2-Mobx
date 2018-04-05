@@ -1,3 +1,82 @@
+/* 设置导航栏激活后样式 */
 a.navbar-item.is-active, a.navbar-link.is-active {
   color: #3273dc;
+}
+
+/* 设置github iframe居中 */
+#iframe {
+  margin-bottom: -5px;
+  margin-left: 5px;
+}
+
+/* 设置github icon 颜色 */
+.gray-icon {
+  color: gray;
+}
+
+/* 设置a标签hover透明 */
+a:hover {
+  opacity: 0.85;
+}
+
+/* logo css */
+#logo {
+  animation: rotation 30s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(359deg);
+  }
+}
+
+/* cloud css */
+/* 小于570px,不显示云 */
+@media screen and (min-width: 570px) {
+  .cloud {
+    height: 110px;
+  } 
+  #cloud1 {
+    vertical-align: bottom;
+    animation: fadeInLeft 2s 0s 1;
+  }
+  #cloud2{
+    animation: fadeInRight 2s 0s 1;
+  }
+}
+@media screen and (max-width: 570px) {
+  .cloud {
+    display: none;
+  }
+}
+
+
+@keyframes fadeInLeft {
+  0% { 
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes fadeInRight {
+  0% { 
+    opacity: 0;
+    transform: translateX(20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+/* 定制footer */
+.footer {
+    background-color: #f5f5f5;
+    padding: 1.5rem 1.5rem 3rem;
 }
