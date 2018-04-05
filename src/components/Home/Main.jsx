@@ -20,7 +20,8 @@ const Main = ({ mostViewedArticles, newestArticles }) => {
 
   const mainViewStyleObj = {
     marginTop: "3rem",
-    marginBottom: "3rem"
+    marginBottom: "1rem",
+    padding: "1rem"
   }
 
   return (

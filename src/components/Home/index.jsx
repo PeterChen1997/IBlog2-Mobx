@@ -8,13 +8,16 @@ import { inject, observer } from 'mobx-react';
 export default class Home extends Component {
   render() {
     const { slogan, title } = this.props.commonStore
-    const { mostViewedArticles } = this.props.articlesStore
+    const { mostViewedArticles, newestArticles } = this.props.articlesStore
 
     return (
       <div>
         <Banner slogan={ slogan } title={ title } />
         <div>
-          <Main mostViewedArticles={ mostViewedArticles.toJS() }/>
+          <Main 
+            mostViewedArticles={ mostViewedArticles.toJS() }
+            newestArticles={ newestArticles.toJS() }
+          />
         </div>
       </div>
     )
