@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 
 import Main from './components/Main'
@@ -9,9 +9,9 @@ export default class App extends Component {
   render() {
     return (
       <Provider {...rootStore}>
-        <HashRouter>
+        <BrowserRouter>
           <Main />
-        </HashRouter>
+        </BrowserRouter>
       </Provider>
     )
   }
