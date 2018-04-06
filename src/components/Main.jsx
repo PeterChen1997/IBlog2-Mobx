@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 
 import Header from './Header'
@@ -8,8 +8,10 @@ import Home from './Home'
 import ArticlesList from './ArticlesList'
 import CommentsList from './CommentsList'
 import About from './About'
+import ArticleDetail from './ArticleDetail'
 
-@inject('commonStore', 'articlesStore')
+@inject('commonStore')
+@withRouter
 @observer
 class Main extends Component {
   render() {
@@ -19,6 +21,7 @@ class Main extends Component {
           <Header />
           <Switch>
             <Route exact path='/about' component={ About } />
+            <Route exact path='/articlesList/:id' component={ ArticleDetail } />
             <Route exact path='/articlesList' component={ ArticlesList } />
             <Route exact path='/commentsList' component={ CommentsList } />
             <Route exact path='/' component={ Home } />

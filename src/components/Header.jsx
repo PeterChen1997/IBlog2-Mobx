@@ -48,7 +48,7 @@ class Header extends Component {
               this.state.navs.map(item => (
                 <Link key={item.nav}
                   className={this.props.commonStore.currentMenuIndex === item.nav ? "is-active navbar-item" : "navbar-item"}
-                  to={item.nav}
+                  to={"/" + item.nav}
                   onClick={() => this.props.commonStore.setMenuIndex(item.nav)}
                 >
                   <span className="icon">
