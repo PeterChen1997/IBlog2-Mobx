@@ -7,10 +7,10 @@ const Banner = ({ title, slogan }) => {
   return (
     <section className="hero is-info is-medium">
       <div className="hero-body">
-        <div className="container has-text-centered">
+        <div className="container has-text-centered ">
 
           <img src={cloud1} alt="cloud" id="cloud1" className="cloud"/>
-          <img src={logo} alt="Logo" id="logo"/>
+          <img src={logo} alt="Logo" id="logo" />
           <img src={cloud2} alt="cloud" id="cloud2" className="cloud"/>
 
           <h1 className="title">

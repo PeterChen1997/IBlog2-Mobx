@@ -1,68 +1,84 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { inject, observer } from 'mobx-react'
+import { withRouter, Link } from 'react-router-dom'
 
 import ArticlesList from '../ArticlesList/List'
 import CommentsSideList from '../CommentsList/SideList'
+import Tile from './Tile'
 
-const Main = ({ mostViewedArticles, newestArticles, newestComments }) => {
-  const titleStyleObj = {
-    fontSize: "1.5rem",
-    marginBottom: "1.5rem",
-    fontWeight: "500",
-    lineHeight: "1.2"
-  }
+@inject('commonStore', 'articlesStore', 'commentsStore')
+@withRouter
+@observer
+class Main extends Component {
+  render() {
+    const titleStyleObj = {
+      fontSize: "1.5rem",
+      marginBottom: "1.5rem",
+      fontWeight: "500",
+      lineHeight: "1.2"
+    }
 
-  const linkStyleObj = {
-    fontSize: "1.3rem",
-    marginBottom: "1.5rem",
-    fontWeight: "500",
-    lineHeight: "1.2",
-    color: "gray"
-  }
+    const linkStyleObj = {
+      fontSize: "1.3rem",
+      marginBottom: "1.5rem",
+      fontWeight: "500",
+      lineHeight: "1.2",
+      color: "gray",
+      display: "block"
+    }
 
-  const mainViewStyleObj = {
-    marginTop: "3rem",
-    marginBottom: "1rem",
-    padding: "1rem"
-  }
+    const mainViewStyleObj = {
+      marginTop: "3rem",
+      marginBottom: "1rem",
+      padding: "1rem"
+    }
 
-  return (
-    <div className="container" style={mainViewStyleObj}>
+    const {
+      mostViewedArticles,
+      newestArticles,
+      isLoading
+    } = this.props.articlesStore
+    const {
+      newestComments,
+      isCommentsLoading
+    } = this.props.commentsStore
 
-      <h3 style={titleStyleObj}>最多浏览</h3>
-      <div className="tile is-ancestor">
-        <div className="tile is-4 is-vertical is-parent">
-          <div className="tile is-child box">
-            <p className="title">{ mostViewedArticles[0].title }</p>
-            <p>{ mostViewedArticles[0].content.length > 80 ? mostViewedArticles[0].content.slice(0, 81) + '...' : mostViewedArticles[0].content}</p>
+    return (
+      <div className="container" style={mainViewStyleObj}>
+
+        <h3 style={titleStyleObj}>最多浏览</h3>
+        <Tile
+          isLoading={isLoading}
+          mostViewedArticles={mostViewedArticles}
+        />
+
+        <div className="columns animated fadeIn">
+          <div className="column is-three-quarters">
+            <h3 style={titleStyleObj}>最新发布</h3>
+            <ArticlesList
+              articles={newestArticles}
+              isLoading={isLoading}
+            />
+            <Link
+              style={linkStyleObj}
+              className="has-text-centered"
+              to="/articlesList"
+            >
+              >> 文章列表
+            </Link>
           </div>
-          <div className="tile is-child box">
-          <p className="title">{ mostViewedArticles[1].title }</p>
-            <p>{ mostViewedArticles[1].content.length > 80 ? mostViewedArticles[1].content.slice(0, 81) + '...' : mostViewedArticles[1].content}</p>
-          </div>
-        </div>
-        <div className="tile is-parent">
-          <div className="tile is-child box">
-          <p className="title">{ mostViewedArticles[2].title }</p>
-            <p>{ mostViewedArticles[2].content.length > 80 ? mostViewedArticles[2].content.slice(0, 81) + '...' : mostViewedArticles[2].content}</p>
+
+          <div className="column">
+            <h3 style={titleStyleObj}>最新回复</h3>
+            <CommentsSideList
+              comments={newestComments}
+              isCommentsLoading={isCommentsLoading}
+            />
           </div>
         </div>
       </div>
-
-      <div className="columns">
-        <div className="column is-three-quarters">
-          <h3 style={titleStyleObj}>最新发布</h3>
-          <ArticlesList articles={ newestArticles }/>
-          <h3 style={linkStyleObj} className="has-text-centered">>> 文章列表</h3>
-        </div>
-
-        <div className="column">
-          <h3 style={titleStyleObj}>最新回复</h3>
-          <CommentsSideList comments={ newestComments }/> 
-        </div>
-      </div>
-      
-    </div>
-  )
-};
+    )
+  }
+}
 
 export default Main;

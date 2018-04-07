@@ -1,7 +1,12 @@
 import React from 'react'
+import IsLoading from '../Tools/IsLoading'
 // import { Link } from 'react-router-dom'
 
-const SideList = ({ comments }) => {
+const SideList = ({ comments, isCommentsLoading }) => {
+  if(isCommentsLoading) {
+    return <IsLoading />
+  } else {
+
   return (
     <div className="side-list">
       <ul>
@@ -21,6 +26,7 @@ const SideList = ({ comments }) => {
       </ul>
     </div>
   )
+}
 }
 
 export default SideList

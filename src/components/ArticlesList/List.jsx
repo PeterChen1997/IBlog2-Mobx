@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
+import IsLoading from '../Tools/IsLoading'
+
 @withRouter
 class List extends Component {
   renderTap = (tagsStr) => {
     const tagsArr = tagsStr.split('-')
     return tagsArr.map(tag => (
-      <Link to={`/tags/${tag}`} key={tag}>{tag}</Link>
+      <Link to={`/tags/${tag}`} key={tag}>{tag} </Link>
     ))
   }
 
@@ -14,13 +16,21 @@ class List extends Component {
     const unOrderedListStyleObj = {
       marginBottom: "3rem"
     }
+    if(this.props.isLoading) {
+      return (
+      <div className="articlesList">
+        <IsLoading />
+      </div>        
+      )
+    } else {
+
     return (
       <div className="articlesList">
         <ul style={unOrderedListStyleObj}>
           {
             this.props.articles.map(article => (
               <li
-                className="box"
+                className="list"
                 key={article.id + "new"}
               >
                 <Link
@@ -30,7 +40,7 @@ class List extends Component {
                   {article.title}
                 </Link>
                 <p>
-                  {article.content}
+                  {article.desc.length > 55 ? article.desc.slice(0, 55) + "..." : article.desc}
                 </p>
                 <br />
                 <p style={{ marginBottom: '0.6rem' }}><i className="fa fa-tag" /> 标签：{this.renderTap(article.topic)}</p>
@@ -43,6 +53,7 @@ class List extends Component {
       </div>
     )
   }
+}
 
 }
 

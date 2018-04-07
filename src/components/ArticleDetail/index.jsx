@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import CommentArea from '../Tools/CommentArea'
 
 
-@inject('commonStore', 'articlesStore')
+@inject('articlesStore')
 @withRouter
 @observer
 class ArticleDetail extends Component {
@@ -16,11 +16,10 @@ class ArticleDetail extends Component {
       marginBottom: "3rem"
     }
     const id = this.props.match.params.id
-    console.log(id)
+    const article = this.props.articlesStore.getArticle(id)
     return (
       <div className="container" style={containerStyleObj}>
-        {/* <ReactMarkdown source={this.props.articlesStore.getArticle(id)} /> */}
-        <ReactMarkdown source={this.props.articlesStore.currentArticle.content} />
+        <ReactMarkdown source={article.content} />
         <br/>
         <CommentArea />
       </div>

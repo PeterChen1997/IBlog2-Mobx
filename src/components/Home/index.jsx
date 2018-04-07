@@ -8,28 +8,27 @@ import { withRouter } from 'react-router-dom'
 @withRouter
 @observer
 export default class Home extends Component {
+  componentDidMount() {
+    // 第一次加载 需要请求信息
+    if(this.props.commonStore.isFirstLoad) {
+      this.props.commentsStore.init()
+      this.props.articlesStore.init()
+      this.props.commonStore.setLoadState()
+    }
+  }
+
   render() {
     const {
       slogan,
       title
     } = this.props.commonStore
-    const {
-      mostViewedArticles,
-      newestArticles,
-    } = this.props.articlesStore
-    const {
-      newestComments
-    } = this.props.commentsStore
+
 
     return (
       <div>
         <Banner slogan={ slogan } title={ title } />
         <div>
-          <Main 
-            mostViewedArticles={ mostViewedArticles.toJS() }
-            newestArticles={ newestArticles.toJS() }
-            newestComments={ newestComments.toJS() }
-          />
+          <Main />
         </div>
       </div>
     )

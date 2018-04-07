@@ -15,23 +15,18 @@ import ArticleDetail from './ArticleDetail'
 @observer
 class Main extends Component {
   render() {
-    if (this.props.commonStore.appLoaded) {
-      return (
-        <div>
-          <Header />
-          <Switch>
-            <Route exact path='/about' component={ About } />
-            <Route exact path='/articlesList/:id' component={ ArticleDetail } />
-            <Route exact path='/articlesList' component={ ArticlesList } />
-            <Route exact path='/commentsList' component={ CommentsList } />
-            <Route exact path='/' component={ Home } />
-          </Switch>
-          <Footer />
-        </div>
-      )
-    }
     return (
-      <Header />
+      <div>
+        <Header />
+        <Switch>
+          <Route exact path='/about' component={About} />
+          <Route exact path='/articlesList/:id' component={ArticleDetail} />
+          <Route exact path='/articlesList' component={ArticlesList} />
+          <Route exact path='/commentsList' component={CommentsList} />
+          <Route exact path='/' component={Home} />
+        </Switch>
+        <Footer />
+      </div>
     )
   }
 }

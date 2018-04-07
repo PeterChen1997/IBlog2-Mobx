@@ -14,7 +14,8 @@ export default class CommentsList extends Component {
   render() {
     const containerStyleObj = {
       marginTop: "5rem",
-      marginBottom: "3rem"
+      marginBottom: "3rem",
+      padding: "1rem"
     }
 
     const {

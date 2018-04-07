@@ -10,7 +10,8 @@ export default class About extends Component {
   render() {
     const containerStyleObj = {
       marginTop: "5rem",
-      marginBottom: "3rem"
+      marginBottom: "3rem",
+      padding: "1rem"
     }
     return (
       <div className="container" style={containerStyleObj}>

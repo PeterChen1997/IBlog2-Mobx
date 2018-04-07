@@ -1,9 +1,9 @@
 import { observable, action, computed } from 'mobx'
 
 class CommentsStore {
-  @observable isLoading = false
   @observable commentsPaginationActiveIndex = 0
   @observable totalCommentsPaginationCount = 0
+  @observable isCommentsLoading = true
   @observable commentsRegistry = observable.map()
   @observable newestComments = [
     {
@@ -38,6 +38,10 @@ class CommentsStore {
       detail: "some detail"
     }
   ]
+
+  @action init() {
+    this.isCommentsLoading = true
+  }
 
   @computed get comments() {
     return this.commentsList.values()

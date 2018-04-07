@@ -21,7 +21,8 @@ export default class ArticlesList extends Component {
 
     const containerStyleObj = {
       marginTop: "5rem",
-      marginBottom: "3rem"
+      marginBottom: "3rem",
+      padding: "1rem"
     }
     const titleStyleObj = {
       fontSize: "1.5rem",
