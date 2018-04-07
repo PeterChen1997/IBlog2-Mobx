@@ -19,23 +19,6 @@ class CommentsStore {
       id: "123",
       articleId: "123",
       detail: "some detail"
-    },
-    {
-      title: "测试评论",
-      id: "123",
-      articleId: "123",
-      detail: "some detail"
-    },
-    {
-      title: "测试评论",
-      id: "123",
-      articleId: "123",
-      detail: "some detail"
-    },{
-      title: "测试评论",
-      id: "123",
-      articleId: "123",
-      detail: "some detail"
     }
   ]
 

@@ -13,10 +13,10 @@ export default class ArticlesList extends Component {
 
   render() {
     const {
-      shownArticles,
       shownTags,
       totalArticlesPaginationCount,
-      articlesPaginationActiveIndex
+      articlesPaginationActiveIndex,
+      articles
     } = this.props.articlesStore
 
     const containerStyleObj = {
@@ -36,7 +36,7 @@ export default class ArticlesList extends Component {
         <div className="columns">
           <div className="column is-three-quarters">
             <h3 style={titleStyleObj}>文章列表</h3>
-            <List articles={shownArticles} />
+            <List articles={articles} />
             <Pagination
               totalCount={ totalArticlesPaginationCount }
               activeIndex={ articlesPaginationActiveIndex}

@@ -12,7 +12,6 @@ import IsLoading from '../Tools/IsLoading'
 @observer
 class ArticleDetail extends Component {
   componentDidMount() {
-    console.log("did mount")
     const id = this.props.match.params.id
     if(!this.props.articlesStore.ishaveArticle(id)) {
       this.props.articlesStore.getArticle(id)
@@ -24,17 +23,22 @@ class ArticleDetail extends Component {
       marginBottom: "3rem"
     }
 
-    const {
+    let {
       shownArticle
     } = this.props.articlesStore
 
-    if(JSON.stringify(shownArticle) === "{}") {
+    const id = this.props.match.params.id
+
+    if(!this.props.articlesStore.ishaveArticle(id)) {
       return (
         <IsLoading />
       )
     }
+
+    shownArticle = this.props.articlesStore.getArticle(id)
     return (
       <div className="container" style={containerStyleObj}>
+        {shownArticle.id}
         <ReactMarkdown source={shownArticle.content} />
         <br />
         <CommentArea />

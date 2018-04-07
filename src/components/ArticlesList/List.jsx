@@ -12,6 +12,31 @@ class List extends Component {
     ))
   }
 
+  forLoop = () => {
+    let res = []
+    for(let article of this.props.articles) {
+      res.push(<li
+        className="list"
+        key={article.id + "new"}
+      >
+        <Link
+          className="title"
+          to={`/articlesList/${article.id}`}
+        >
+          {article.title}
+        </Link>
+        <p>
+          {article.desc.length > 55 ? article.desc.slice(0, 55) + "..." : article.desc}
+        </p>
+        <br />
+        <p style={{ marginBottom: '0.6rem' }}><i className="fa fa-tag" /> 标签：{this.renderTap(article.topic)}</p>
+        <p style={{ float: 'right' }}><i className="fa fa-calendar-times-o" /> 发布日期：{article.createdAt.slice(0, 10)}</p>
+        <p><i className="fa fa-book" /> 浏览数：{article.view}</p>
+      </li>)
+    }
+    return res
+  }
+
   render() {
     const unOrderedListStyleObj = {
       marginBottom: "3rem"
@@ -28,26 +53,7 @@ class List extends Component {
       <div className="articlesList">
         <ul style={unOrderedListStyleObj}>
           {
-            this.props.articles.map(article => (
-              <li
-                className="list"
-                key={article.id + "new"}
-              >
-                <Link
-                  className="title"
-                  to={`/articlesList/${article.id}`}
-                >
-                  {article.title}
-                </Link>
-                <p>
-                  {article.desc.length > 55 ? article.desc.slice(0, 55) + "..." : article.desc}
-                </p>
-                <br />
-                <p style={{ marginBottom: '0.6rem' }}><i className="fa fa-tag" /> 标签：{this.renderTap(article.topic)}</p>
-                <p style={{ float: 'right' }}><i className="fa fa-calendar-times-o" /> 发布日期：{article.createdAt.slice(0, 10)}</p>
-                <p><i className="fa fa-book" /> 浏览数：{article.view}</p>
-              </li>
-            ))
+            this.forLoop(this.props.articles)
           }
         </ul>
       </div>

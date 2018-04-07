@@ -41,7 +41,7 @@ class ArticlesStore {
   }
 
   @computed get articles() {
-    return this.articlesList.values()
+    return this.articlesRegistry.values()
   }
 
   clear() {
@@ -50,7 +50,7 @@ class ArticlesStore {
   }
 
   @action getArticle(id) {
-    if(this.articlesRegistry.get(id)) {
+    if(this.ishaveArticle(id)) {
       this.setLoadingState(false)
       return this.articlesRegistry.get(id)
     } else {
@@ -75,7 +75,7 @@ class ArticlesStore {
     let data = (await (api.byId(`${id}`))).data
     this.setArticles([data])
     this.shownArticle = data
-    this.isLoading = false
+    this.setLoadingState(false)
   }
 
   // @action loadArticle(slug, { acceptCached = false } = {}) {
