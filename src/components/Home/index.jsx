@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom'
 @withRouter
 @observer
 export default class Home extends Component {
-  componentDidMount() {
+  componentWillMount() {
     // 第一次加载 需要请求信息
     if(this.props.commonStore.isFirstLoad) {
       this.props.commentsStore.init()

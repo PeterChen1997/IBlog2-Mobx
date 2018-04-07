@@ -3,7 +3,7 @@ import { observable, action, computed } from 'mobx'
 class CommentsStore {
   @observable commentsPaginationActiveIndex = 0
   @observable totalCommentsPaginationCount = 0
-  @observable isCommentsLoading = true
+  @observable isCommentsLoading = false
   @observable commentsRegistry = observable.map()
   @observable newestComments = [
     {
@@ -63,16 +63,7 @@ class CommentsStore {
   @action loadcomments() {
   }
 
-  @action loadArticle(slug, { acceptCached = false } = {}) {
-    // cached
-
-    // if (acceptCached) {
-    //   const article = this.getArticle(slug)
-    //   if (article) reurn Promise.resolve(article)
-    // }
-
-    // not cached
-  }
+  
 
 
 }

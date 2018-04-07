@@ -40,7 +40,8 @@ class Main extends Component {
     } = this.props.articlesStore
     const {
       newestComments,
-      isCommentsLoading
+      isCommentsLoading,
+      isFirstLoad
     } = this.props.commentsStore
 
     return (
@@ -72,7 +73,7 @@ class Main extends Component {
             <h3 style={titleStyleObj}>最新回复</h3>
             <CommentsSideList
               comments={newestComments}
-              isCommentsLoading={isCommentsLoading}
+              isCommentsLoading={isCommentsLoading || isFirstLoad}
             />
           </div>
         </div>

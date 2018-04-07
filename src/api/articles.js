@@ -4,7 +4,7 @@ const Articles = {
   byView: (lim = 3) => 
     requests.get(`/articles/view/${lim}`),
   byTime: (lim = 3) => 
-    requests.get(`/articles/updatedAt/${lim}`)
+    requests.get(`/articles/updatedAt/${lim}`),
   // all: (page, lim = 10) =>
   //   requests.get(`/articles?${limit(lim, page)}`),
   // byAuthor: (author, page, query) =>
@@ -19,8 +19,8 @@ const Articles = {
   //   requests.get(`/articles?favorited=${encode(author)}&${limit(5, page)}`),
   // feed: () =>
   //   requests.get('/articles/feed?limit=10&offset=0'),
-  // get: slug =>
-  //   requests.get(`/articles/${slug}`),
+  byId: id =>
+    requests.get(`/articles/${id}`)
   // unfavorite: slug =>
   //   requests.del(`/articles/${slug}/favorite`),
   // update: article =>

@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
-import ReactMarkdown from 'react-markdown'
-
-import CommentArea from '../Tools/CommentArea'
 
 
 @inject('commonStore', 'articlesStore')
