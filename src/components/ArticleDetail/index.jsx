@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 import CommentArea from '../Tools/CommentArea'
 import IsLoading from '../Tools/IsLoading'
+import CodeBlock from '../Tools/CodeBlock'
 
 
 @inject('articlesStore')
@@ -38,8 +39,10 @@ class ArticleDetail extends Component {
     currentArticle = this.props.articlesStore.getArticle(id)
     return (
       <div className="container" style={containerStyleObj}>
-        {currentArticle.id}
-        <ReactMarkdown source={currentArticle.content} />
+        <ReactMarkdown
+          source={currentArticle.content}
+          renderers={{code: CodeBlock}}
+        />
         <br />
         <CommentArea />
       </div>
