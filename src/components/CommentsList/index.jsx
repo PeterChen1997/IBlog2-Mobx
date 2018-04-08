@@ -11,6 +11,13 @@ import Pagination from '../Tools/Pagination';
 @withRouter
 @observer
 export default class CommentsList extends Component {
+
+  componentDidMount() {
+    if(this.props.commentsStore.isFirstLoad) {
+      this.props.commonStore.setMenuIndex("commentsList")
+    }
+  }
+
   render() {
     const containerStyleObj = {
       marginTop: "5rem",
@@ -22,11 +29,11 @@ export default class CommentsList extends Component {
       shownComments,
       totalCommentsPaginationCount,
       commentsPaginationActiveIndex,
-      newestComments
+      newestComments,
     } = this.props.commentsStore
 
     return (
-      <div className="container" style={containerStyleObj}>
+      <div className="container animated fadeIn" style={containerStyleObj}>
         <div className="columns">
           <div className="column is-three-quarters">
             <InputArea />

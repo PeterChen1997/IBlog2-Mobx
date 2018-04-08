@@ -1,4 +1,4 @@
-import { observable, action, computed } from 'mobx'
+import { observable, action } from 'mobx'
 
 import api from '../api/articles'
 
@@ -8,7 +8,7 @@ class ArticlesStore {
   @observable articlesPaginationActiveIndex = 1
   @observable totalArticlesPaginationCount = 1
   @observable articlesRegistry = observable.map()
-  @observable shownTags = ["Vue"]
+  @observable shownTags = []
   @observable currentArticle = {}
   @observable shownArticles = []
   @observable mostViewedArticles = []
@@ -24,7 +24,6 @@ class ArticlesStore {
     this.setArticles(this.newestArticles)
 
     this.setLoadingState(false)
-    this.isFirstLoad = false
     // 懒加载剩下的
     this.lazyLoad()
 
@@ -38,6 +37,8 @@ class ArticlesStore {
     this.shownTags = (await api.byTags()).data
     
     this.isFirstLoad = false
+    this.setLoadingState(false)
+    
     // this.setArticles(this.newestArticles)
     // // 获取分页信息
     // this.setLoadingState(false)

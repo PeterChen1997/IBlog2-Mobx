@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const List = ({ comments }) => {
   const unOrderedListStyleObj = {
@@ -16,7 +16,10 @@ const List = ({ comments }) => {
             className="box"
             key={comment.articleId + "comment"}
           >
-            <h3 className="title">{ comment.title }</h3>
+            <Link
+              className="title"
+              to={`commentsList/${comment.id}`}
+            >{ comment.title }</Link>
             <p>
               { comment.detail }
             </p>

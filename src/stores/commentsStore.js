@@ -1,9 +1,10 @@
-import { observable, action, computed } from 'mobx'
+import { observable, action } from 'mobx'
 
 class CommentsStore {
   @observable commentsPaginationActiveIndex = 0
   @observable totalCommentsPaginationCount = 0
   @observable isCommentsLoading = false
+  @observable isFirstLoad = true
   @observable commentsRegistry = observable.map()
   @observable newestComments = [
     {
@@ -24,31 +25,10 @@ class CommentsStore {
 
   @action init() {
     this.isCommentsLoading = true
+    
+    this.isFirstLoad = false
+    this.isCommentsLoading = false
   }
-
-  @computed get comments() {
-    return this.commentsList.values()
-  }
-
-  clear() {
-    this.commentsRegistry.clear()
-    this.pageIndex = 0
-  }
-
-  getArticle(id) {
-    return this.commentsRegistry.get(id)
-  }
-
-  @action setPage(pageIndex) {
-    this.pageIndex = pageIndex
-  }
-
-  @action loadcomments() {
-  }
-
-  
-
-
 }
 
 export default new CommentsStore()

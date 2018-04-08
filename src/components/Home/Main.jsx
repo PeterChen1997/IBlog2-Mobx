@@ -63,6 +63,7 @@ class Main extends Component {
             <Link
               style={linkStyleObj}
               className="has-text-centered"
+              onClick={() => this.props.commonStore.setMenuIndex("articlesList")}
               to="/articlesList"
             >
               >> 文章列表

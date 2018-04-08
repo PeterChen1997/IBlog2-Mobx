@@ -13,8 +13,9 @@ import IsLoading from '../Tools/IsLoading'
 export default class ArticlesList extends Component {
 
   componentDidMount() {
-    if(this.props.commonStore.isFirstLoad) {
+    if (this.props.articlesStore.isFirstLoad) {
       this.props.articlesStore.initList()
+      this.props.commonStore.setMenuIndex("articlesList")
     }
   }
 
@@ -44,7 +45,7 @@ export default class ArticlesList extends Component {
     }
 
     return (
-      <div className="container" style={containerStyleObj}>
+      <div className="container animated fadeIn" style={containerStyleObj}>
         <div className="columns">
           <div className="column is-three-quarters">
             <h3 style={titleStyleObj}>文章列表</h3>
@@ -54,9 +55,9 @@ export default class ArticlesList extends Component {
                   <div>
                     <List articles={shownArticles} />
                     <Pagination
-                      totalCount={ totalArticlesPaginationCount }
-                      activeIndex={ articlesPaginationActiveIndex }
-                      setIndex={ this.setPaginationIndex }
+                      totalCount={totalArticlesPaginationCount}
+                      activeIndex={articlesPaginationActiveIndex}
+                      setIndex={this.setPaginationIndex}
                     />
                   </div>
                 )
@@ -67,12 +68,12 @@ export default class ArticlesList extends Component {
             <h3 style={titleStyleObj}>分类</h3>
             {
               isFirstLoad ? <IsLoading /> :
-                <TagsList tags={shownTags}/>
+                <TagsList tags={shownTags} />
             }
           </div>
         </div>
       </div>
     )
-    
+
   }
 }

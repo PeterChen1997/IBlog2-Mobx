@@ -7,6 +7,13 @@ import { withRouter } from 'react-router-dom'
 @withRouter
 @observer
 export default class About extends Component {
+
+  componentDidMount() {
+    if(this.props.commonStore.isFirstLoad) {
+      this.props.commonStore.setMenuIndex("about")
+    }
+  }
+
   render() {
     const containerStyleObj = {
       marginTop: "5rem",
@@ -14,7 +21,7 @@ export default class About extends Component {
       padding: "1rem"
     }
     return (
-      <div className="container" style={containerStyleObj}>
+      <div className="container animated fadeIn" style={containerStyleObj}>
         <div className="picture"></div>
         <div className="details">
           <h4>Hi, 我是谌杨</h4>

@@ -14,7 +14,7 @@ class List extends Component {
 
   forLoop = () => {
     let res = []
-    for(let article of this.props.articles) {
+    for (let article of this.props.articles) {
       res.push(<li
         className="list"
         key={article.id + "new"}
@@ -41,25 +41,25 @@ class List extends Component {
     const unOrderedListStyleObj = {
       marginBottom: "3rem"
     }
-    if(this.props.isLoading) {
+    if (this.props.isLoading) {
       return (
-      <div className="articlesList">
-        <IsLoading />
-      </div>        
+        <div className="articlesList">
+          <IsLoading />
+        </div>
       )
     } else {
 
-    return (
-      <div className="articlesList">
-        <ul style={unOrderedListStyleObj}>
-          {
-            this.forLoop(this.props.articles)
-          }
-        </ul>
-      </div>
-    )
+      return (
+        <div className="articlesList">
+          <ul style={unOrderedListStyleObj}>
+            {
+              this.forLoop(this.props.articles)
+            }
+          </ul>
+        </div>
+      )
+    }
   }
-}
 
 }
 

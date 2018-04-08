@@ -1,6 +1,6 @@
 import React from 'react'
 import IsLoading from '../Tools/IsLoading'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const SideList = ({ comments, isCommentsLoading }) => {
   if(isCommentsLoading) {
@@ -13,10 +13,13 @@ const SideList = ({ comments, isCommentsLoading }) => {
       {
         comments.map(comment => (
           <li
-            className="box"
+            className="list"
             key={comment.articleId + "comment"}
           >
-            <h3 className="title">{ comment.title }</h3>
+            <Link
+              className="title"
+              to={`commentsList/${comment.id}`}
+            >{ comment.title }</Link>
             <p>
               { comment.detail }
             </p>

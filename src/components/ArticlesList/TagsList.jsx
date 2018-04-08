@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const TagsList = ({ tags }) => {
   return (
@@ -6,7 +7,11 @@ const TagsList = ({ tags }) => {
       <ul>
         {
           tags.map(tag => (
-            <p key={tag}>{tag}</p>
+            <div key={tag}>
+              <Link
+                to={`tags/${tag}`}
+              >{tag}</Link>
+            </div>
           ))
         }
       </ul>
