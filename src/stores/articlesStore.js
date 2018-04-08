@@ -3,13 +3,14 @@ import { observable, action, computed } from 'mobx'
 import api from '../api/articles'
 
 class ArticlesStore {
+  @observable isFirstLoad = true
   @observable isLoading = false
-  @observable articlesPaginationActiveIndex = 0
-  @observable totalArticlesPaginationCount = 0
+  @observable articlesPaginationActiveIndex = 1
+  @observable totalArticlesPaginationCount = 1
   @observable articlesRegistry = observable.map()
   @observable shownTags = ["Vue"]
   @observable currentArticle = {}
-  @observable shownArticle = {}
+  @observable shownArticles = []
   @observable mostViewedArticles = []
   @observable newestArticles = []
 
@@ -23,9 +24,25 @@ class ArticlesStore {
     this.setArticles(this.newestArticles)
 
     this.setLoadingState(false)
+    this.isFirstLoad = false
     // 懒加载剩下的
     this.lazyLoad()
 
+  }
+
+  @action async initList() {
+    this.setLoadingState(true)
+    // 获取列表首页, pagination
+    this.loadArticles()
+    // tags
+    this.shownTags = (await api.byTags()).data
+    
+    this.isFirstLoad = false
+    // this.setArticles(this.newestArticles)
+    // // 获取分页信息
+    // this.setLoadingState(false)
+    // // 懒加载剩下的
+    // this.lazyLoad()
   }
 
   @action setLoadingState(status) {
@@ -38,15 +55,6 @@ class ArticlesStore {
 
   setArticles(articles) {
     articles.forEach(article => this.articlesRegistry.set(article.id, article));
-  }
-
-  @computed get articles() {
-    return this.articlesRegistry.values()
-  }
-
-  clear() {
-    this.articlesRegistry.clear()
-    this.pageIndex = 0
   }
 
   @action getArticle(id) {
@@ -67,29 +75,28 @@ class ArticlesStore {
     }
   }
 
-  @action setPage(pageIndex) {
-    this.pageIndex = pageIndex
-  }
-
+  // 加载单一文章
   @action async loadArticle(id) {
     let data = (await (api.byId(`${id}`))).data
     this.setArticles([data])
-    this.shownArticle = data
+    this.currentArticle = data
     this.setLoadingState(false)
   }
+  // 加载单页文章列表
+  @action async loadArticles() {
+    // 加载完成后跳转
+    let result = (await (api.all(this.articlesPaginationActiveIndex))).data
+    this.shownArticles = result.rows
+    this.setArticles(this.shownArticles)
+    
+    // 获取设置pagination
+    this.totalArticlesPaginationCount = Math.ceil(result.count / 5)
+  }
 
-  // @action loadArticle(slug, { acceptCached = false } = {}) {
-  //   // cached
-
-  //   // if (acceptCached) {
-  //   //   const article = this.getArticle(slug)
-  //   //   if (article) reurn Promise.resolve(article)
-  //   // }
-
-  //   // not cached
-  // }
-
-
+  @action setPaginationIndex(index) {
+    this.articlesPaginationActiveIndex = index
+    this.loadArticles()
+  }
 }
 
 export default new ArticlesStore()

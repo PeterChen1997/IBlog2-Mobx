@@ -24,7 +24,7 @@ class ArticleDetail extends Component {
     }
 
     let {
-      shownArticle
+      currentArticle
     } = this.props.articlesStore
 
     const id = this.props.match.params.id
@@ -35,11 +35,11 @@ class ArticleDetail extends Component {
       )
     }
 
-    shownArticle = this.props.articlesStore.getArticle(id)
+    currentArticle = this.props.articlesStore.getArticle(id)
     return (
       <div className="container" style={containerStyleObj}>
-        {shownArticle.id}
-        <ReactMarkdown source={shownArticle.content} />
+        {currentArticle.id}
+        <ReactMarkdown source={currentArticle.content} />
         <br />
         <CommentArea />
       </div>

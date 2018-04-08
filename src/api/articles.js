@@ -5,12 +5,12 @@ const Articles = {
     requests.get(`/articles/view/${lim}`),
   byTime: (lim = 3) => 
     requests.get(`/articles/updatedAt/${lim}`),
-  // all: (page, lim = 10) =>
-  //   requests.get(`/articles?${limit(lim, page)}`),
+  all: (page = 1) =>
+    requests.get(`/articles/page/${page}`),
   // byAuthor: (author, page, query) =>
   //   requests.get(`/articles?author=${encode(author)}&${limit(5, page)}`),
-  // byTag: (tag, page, lim = 10) =>
-  //   requests.get(`/articles?tag=${encode(tag)}&${limit(lim, page)}`),
+  byTags: () =>
+    requests.get(`/articles/tags`),
   // del: slug =>
   //   requests.del(`/articles/${slug}`),
   // favorite: slug =>
