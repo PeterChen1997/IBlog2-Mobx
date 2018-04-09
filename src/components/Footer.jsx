@@ -24,7 +24,7 @@ class Footer extends Component {
                   Writen by <a target="_blank"  rel='noopener noreferrer' href="https://github.com/PeterChen1997">PeterChen</a> | 
               <iframe title="git-star" id="iframe"
                 frameBorder="0" scrolling="0" width="80px" height="20px"
-                src="https://ghbtns.com/github-btn.html?user=PeterChen1997&repo=IBlog&type=star&count=true" >
+                src="https://ghbtns.com/github-btn.html?user=PeterChen1997&repo=IBlog2-Mobx&type=star&count=true" >
               </iframe>
             </p>
           </div>

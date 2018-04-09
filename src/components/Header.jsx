@@ -54,27 +54,8 @@ class Header extends Component {
         <div
           className={ this.props.commonStore.currentMenuState ? "navbar-menu burger-menu is-active animated fadeIn " : "navbar-menu burger-menu" }
         >
-          <div className="navbar-start">
-          {
-              this.state.navs.map(item => (
-                <Link key={item.nav}
-                  className={this.props.commonStore.currentMenuIndex === item.nav ? "is-active navbar-item" : "navbar-item"}
-                  to={"/" + item.nav}
-                  onClick={() => this.props.commonStore.setMenuIndex(item.nav)}
-                >
-                  <span className="icon">
-                    <i className={item.icon} ></i>
-                  </span>
-                  <span>{item.title}</span>
-                </Link>
-              ))
-            }
-          </div>
-        </div>
-
-        <div className="navbar-menu">
           <div className="navbar-end">
-            {
+          {
               this.state.navs.map(item => (
                 <Link key={item.nav}
                   className={this.props.commonStore.currentMenuIndex === item.nav ? "is-active navbar-item" : "navbar-item"}

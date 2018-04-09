@@ -26,8 +26,12 @@ export default class CommentsList extends Component {
       newestComments,
     } = this.props.commentsStore
 
+    const commentsPageStyleObj = {
+      minHeight: '60vh'
+    }
+
     return (
-      <div className="container animated fadeIn">
+      <div className="container animated fadeIn" style={commentsPageStyleObj}>
         <div className="columns">
           <div className="column is-three-quarters">
             <InputArea />

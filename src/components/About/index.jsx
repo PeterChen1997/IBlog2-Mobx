@@ -16,6 +16,9 @@ export default class About extends Component {
   }
 
   render() {
+    const aboutPageStyleObj = {
+      minHeight: '60vh'
+    }
     const aboutDetail = 
 `
 ## 关于页面
@@ -27,7 +30,7 @@ export default class About extends Component {
 这是[我的简历](https://www.peterchen.club/resume/)
 `
     return (
-      <div className="container animated fadeIn markdown-body">
+      <div className="container animated fadeIn markdown-body" style={aboutPageStyleObj}>
         <ReactMarkdown
           source={ aboutDetail }
         />
