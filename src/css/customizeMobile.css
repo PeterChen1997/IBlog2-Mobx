@@ -1,6 +1,7 @@
 /* 较大屏 */
 @media screen and (max-width: 1980px) {
   .markdown-body {
+    padding: 0 7em;
     color: #24292e;
   }
 }
