@@ -33,7 +33,7 @@ class ArticleDetail extends Component {
 
     currentArticle = this.props.articlesStore.getArticle(id)
     return (
-      <div className="container">
+      <div className="container markdown-body">
         <ReactMarkdown
           source={currentArticle.content}
           renderers={{code: CodeBlock}}
