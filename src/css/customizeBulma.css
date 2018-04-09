@@ -41,3 +41,10 @@ transform: scale(1.02);
 h1 {
   margin: 0.67em 0;
 }
+
+/* 设置container */
+.container {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  padding: 1rem;
+}

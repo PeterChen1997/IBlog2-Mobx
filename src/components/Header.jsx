@@ -40,6 +40,36 @@ class Header extends Component {
               <p>{ this.props.commonStore.appName }</p>
             </Link>
           </div>
+
+          <div
+            className={ this.props.commonStore.currentMenuState ? "navbar-burger burger is-active" : "navbar-burger burger" }
+            onClick={() => this.props.commonStore.setMenuState()}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>    
+        </div>
+
+        <div
+          className={ this.props.commonStore.currentMenuState ? "navbar-menu burger-menu is-active animated fadeIn " : "navbar-menu burger-menu" }
+        >
+          <div className="navbar-start">
+          {
+              this.state.navs.map(item => (
+                <Link key={item.nav}
+                  className={this.props.commonStore.currentMenuIndex === item.nav ? "is-active navbar-item" : "navbar-item"}
+                  to={"/" + item.nav}
+                  onClick={() => this.props.commonStore.setMenuIndex(item.nav)}
+                >
+                  <span className="icon">
+                    <i className={item.icon} ></i>
+                  </span>
+                  <span>{item.title}</span>
+                </Link>
+              ))
+            }
+          </div>
         </div>
 
         <div className="navbar-menu">

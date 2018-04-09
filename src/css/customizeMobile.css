@@ -1,0 +1,21 @@
+/* 较大屏 */
+@media screen and (max-width: 1980px) {
+  .markdown-body {
+    color: #24292e;
+  }
+}
+/* 中屏 */
+@media screen and (max-width: 1024px) {
+  .markdown-body {
+    padding: 3em;
+    color: #24292e;
+  }
+}
+/* 小屏 */
+@media screen and (max-width: 375px) {
+  .markdown-body {
+    padding: 2em;
+    color: #24292e;
+    font-size: 0.8em;
+  }
+}

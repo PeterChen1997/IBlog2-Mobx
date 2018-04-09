@@ -6,6 +6,7 @@ class CommonStore {
   @observable title = 'Adventure Park'
   @observable slogan = 'Stay hungry. Stay foolish'
   @observable currentMenuIndex = ""
+  @observable currentMenuState = false
   @observable isFirstLoad = true
 
   @action setLoadState() {
@@ -14,6 +15,11 @@ class CommonStore {
 
   @action setMenuIndex(target) {
     this.currentMenuIndex = target
+    this.currentMenuState = false
+  }
+
+  @action setMenuState() {
+    this.currentMenuState = !this.currentMenuState
   }
 }
 
