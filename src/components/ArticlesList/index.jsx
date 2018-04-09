@@ -17,6 +17,7 @@ export default class ArticlesList extends Component {
       this.props.articlesStore.initList()
       this.props.commonStore.setMenuIndex("articlesList")
     }
+    console.log("did mount")
   }
 
   setPaginationIndex = (index) => {

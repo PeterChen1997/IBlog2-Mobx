@@ -44,6 +44,7 @@
     "react-dom": "^16.3.1",
     "react-markdown": "^3.3.0",
     "react-router-dom": "^4.2.2",
+    "react-router-scroll-4": "^1.0.0-beta.1",
     "reactstrap": "^5.0.0-beta.3",
     "resolve": "1.6.0",
     "style-loader": "0.19.0",

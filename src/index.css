@@ -120,7 +120,23 @@ p {
   list-style-type: circle;
 }
 
-.markdown-body {
-  padding: 3rem;
-  color: #24292e;
+
+
+@media screen and (max-width: 1024px) {
+  .markdown-body {
+    padding: 3rem;
+    color: #24292e;
+  }
+}
+@media screen and (max-width: 768px) {
+  .markdown-body {
+    padding: 2rem;
+    color: #24292e;
+  }
+}
+@media screen and (max-width: 375px) {
+  .markdown-body {
+    padding: 1.5rem;
+    color: #24292e;
+  }
 }
