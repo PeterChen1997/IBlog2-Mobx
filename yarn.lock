@@ -1534,6 +1534,10 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/code-point-at/download/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
+codemirror-github-light@^0.4.2:
+  version "0.4.2"
+  resolved "http://registry.npm.taobao.org/codemirror-github-light/download/codemirror-github-light-0.4.2.tgz#89497c2495848a945a2cd21aaa3e566b877b1435"
+
 collapse-white-space@^1.0.2:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/collapse-white-space/download/collapse-white-space-1.0.3.tgz#4b906f670e5a963a87b76b0e1689643341b6023c"
@@ -5528,6 +5532,16 @@ pretty-format@^20.0.3:
   dependencies:
     ansi-regex "^2.1.1"
     ansi-styles "^3.0.0"
+
+primer-markdown@^3.7.5:
+  version "3.7.5"
+  resolved "http://registry.npm.taobao.org/primer-markdown/download/primer-markdown-3.7.5.tgz#bb8e51646846a26b68aab4d9e7858c2e36d298f8"
+  dependencies:
+    primer-support "4.5.2"
+
+primer-support@4.5.2:
+  version "4.5.2"
+  resolved "http://registry.npm.taobao.org/primer-support/download/primer-support-4.5.2.tgz#daab9a48881b6953e8e6ca01865a2f415bf777c5"
 
 private@^0.1.6, private@^0.1.7:
   version "0.1.8"

@@ -1,4 +1,7 @@
 @import "./css/customizeBulma.css";
+@import "./css/customizeMobile.css";
+@import "./css/highlight.css";
+@import "primer-markdown/index.scss";
 
 /* 设置导航栏激活后样式 */
 a.navbar-item.is-active, a.navbar-link.is-active {
@@ -95,4 +98,11 @@ p {
   color: #4f4f4f;
   font-size: 1.4rem;
 
+}
+
+/* 设置container */
+.container {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  padding: 1rem;
 }

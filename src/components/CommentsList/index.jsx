@@ -19,12 +19,6 @@ export default class CommentsList extends Component {
   }
 
   render() {
-    const containerStyleObj = {
-      marginTop: "5rem",
-      marginBottom: "3rem",
-      padding: "1rem"
-    }
-
     const {
       shownComments,
       totalCommentsPaginationCount,
@@ -33,7 +27,7 @@ export default class CommentsList extends Component {
     } = this.props.commentsStore
 
     return (
-      <div className="container animated fadeIn" style={containerStyleObj}>
+      <div className="container animated fadeIn">
         <div className="columns">
           <div className="column is-three-quarters">
             <InputArea />

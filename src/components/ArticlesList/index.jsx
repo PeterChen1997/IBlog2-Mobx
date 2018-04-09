@@ -32,11 +32,6 @@ export default class ArticlesList extends Component {
       isFirstLoad,
     } = this.props.articlesStore
 
-    const containerStyleObj = {
-      marginTop: "5rem",
-      marginBottom: "3rem",
-      padding: "1rem"
-    }
     const titleStyleObj = {
       fontSize: "1.5rem",
       marginBottom: "1.5rem",
@@ -45,7 +40,7 @@ export default class ArticlesList extends Component {
     }
 
     return (
-      <div className="container animated fadeIn" style={containerStyleObj}>
+      <div className="container animated fadeIn">
         <div className="columns">
           <div className="column is-three-quarters">
             <h3 style={titleStyleObj}>文章列表</h3>

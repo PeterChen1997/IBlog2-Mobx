@@ -19,11 +19,6 @@ class ArticleDetail extends Component {
     }
   }
   render() {
-    const containerStyleObj = {
-      marginTop: "5rem",
-      marginBottom: "3rem"
-    }
-
     let {
       currentArticle
     } = this.props.articlesStore
@@ -38,7 +33,7 @@ class ArticleDetail extends Component {
 
     currentArticle = this.props.articlesStore.getArticle(id)
     return (
-      <div className="container" style={containerStyleObj}>
+      <div className="container">
         <ReactMarkdown
           source={currentArticle.content}
           renderers={{code: CodeBlock}}

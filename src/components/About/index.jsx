@@ -15,13 +15,8 @@ export default class About extends Component {
   }
 
   render() {
-    const containerStyleObj = {
-      marginTop: "5rem",
-      marginBottom: "3rem",
-      padding: "1rem"
-    }
     return (
-      <div className="container animated fadeIn" style={containerStyleObj}>
+      <div className="container animated fadeIn">
         <div className="picture"></div>
         <div className="details">
           <h4>Hi, 我是谌杨</h4>
