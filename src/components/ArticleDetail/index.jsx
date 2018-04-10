@@ -39,8 +39,8 @@ class ArticleDetail extends Component {
           source={currentArticle.content}
           renderers={{code: CodeBlock}}
         />
-        <br />
         <CommentsArea />
+        <br />
       </div>
     )
 
