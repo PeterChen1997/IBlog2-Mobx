@@ -52,7 +52,7 @@ class Header extends Component {
         </div>
 
         <div
-          className={ this.props.commonStore.currentMenuState ? "navbar-menu burger-menu is-active animated fadeIn " : "navbar-menu burger-menu" }
+          className={ this.props.commonStore.currentMenuState ? "navbar-menu burger-menu is-active animated fadeIn" : "navbar-menu burger-menu" }
         >
           <div className="navbar-end">
           {
