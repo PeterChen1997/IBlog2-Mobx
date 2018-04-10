@@ -22,7 +22,9 @@ export default class ArticleInfo extends Component {
   }
   render() {
     const articleInfoStyleObj = {
-      color: '#bbb'
+      color: '#bbb',
+      borderBottom: "1px solid #e5e5e5",
+      marginBottom: "2em"
     }
     const articleInfoSubStyleObj = {
       width: "100%",
@@ -49,8 +51,6 @@ export default class ArticleInfo extends Component {
             <p><i className="fa fa-book" /> 浏览数：{this.props.article.view}</p>
           </div>
         </div>
-
-        <br />
       </div>
     )
   }
