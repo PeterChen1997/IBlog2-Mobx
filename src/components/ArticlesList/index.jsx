@@ -17,7 +17,6 @@ export default class ArticlesList extends Component {
       this.props.articlesStore.initList()
       this.props.commonStore.setMenuIndex("articlesList")
     }
-    console.log("did mount")
   }
 
   setPaginationIndex = (index) => {
@@ -33,18 +32,12 @@ export default class ArticlesList extends Component {
       isFirstLoad,
     } = this.props.articlesStore
 
-    const titleStyleObj = {
-      fontSize: "1.5rem",
-      marginBottom: "1.5rem",
-      fontWeight: "500",
-      lineHeight: "1.2"
-    }
 
     return (
       <div className="container animated fadeIn">
         <div className="columns">
           <div className="column is-three-quarters">
-            <h3 style={titleStyleObj}>文章列表</h3>
+            <h3 className="container-h3">文章列表</h3>
             {
               isFirstLoad ? <IsLoading /> :
                 (
@@ -61,7 +54,7 @@ export default class ArticlesList extends Component {
           </div>
 
           <div className="column">
-            <h3 style={titleStyleObj}>分类</h3>
+            <h3 className="container-h3">分类</h3>
             {
               isFirstLoad ? <IsLoading /> :
                 <TagsList tags={shownTags} />

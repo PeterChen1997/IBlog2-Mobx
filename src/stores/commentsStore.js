@@ -29,6 +29,11 @@ class CommentsStore {
     this.isFirstLoad = false
     this.isCommentsLoading = false
   }
+
+  @action singleInit(id) {
+    
+  }
+
 }
 
 export default new CommentsStore()

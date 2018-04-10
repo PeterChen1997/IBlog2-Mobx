@@ -11,13 +11,6 @@ import Tile from './Tile'
 @observer
 class Main extends Component {
   render() {
-    const titleStyleObj = {
-      fontSize: "1.5rem",
-      marginBottom: "1.5rem",
-      fontWeight: "500",
-      lineHeight: "1.2"
-    }
-
     const linkStyleObj = {
       fontSize: "1.3rem",
       marginBottom: "1.5rem",
@@ -47,7 +40,7 @@ class Main extends Component {
     return (
       <div className="container" style={mainViewStyleObj}>
 
-        <h3 style={titleStyleObj}>最多浏览</h3>
+        <h3 className="container-h3">最多浏览</h3>
         <Tile
           isLoading={isLoading}
           mostViewedArticles={mostViewedArticles}
@@ -55,7 +48,7 @@ class Main extends Component {
 
         <div className="columns animated fadeIn">
           <div className="column is-three-quarters">
-            <h3 style={titleStyleObj}>最新发布</h3>
+            <h3 className="container-h3">最新发布</h3>
             <ArticlesList
               articles={newestArticles}
               isLoading={isLoading}
@@ -71,7 +64,7 @@ class Main extends Component {
           </div>
 
           <div className="column">
-            <h3 style={titleStyleObj}>最新回复</h3>
+            <h3 className="container-h3">最新回复</h3>
             <CommentsSideList
               comments={newestComments}
               isCommentsLoading={isCommentsLoading || isFirstLoad}

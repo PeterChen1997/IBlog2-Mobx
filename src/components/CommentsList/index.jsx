@@ -34,6 +34,7 @@ export default class CommentsList extends Component {
       <div className="container animated fadeIn" style={commentsPageStyleObj}>
         <div className="columns">
           <div className="column is-three-quarters">
+          <h3 className="container-h3">评论区</h3>
             <InputArea />
             <List comments={ shownComments.toJS() }/>
             <Pagination
@@ -43,6 +44,7 @@ export default class CommentsList extends Component {
           </div>
 
           <div className="column">
+            <h3 className="container-h3">最多点赞</h3>
             <SideList comments={ newestComments }/>
           </div>
         </div>

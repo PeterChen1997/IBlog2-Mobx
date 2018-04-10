@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react'
 import ReactMarkdown from 'react-markdown'
 import { withRouter } from 'react-router-dom'
 
-import CommentArea from '../Tools/CommentArea'
+import CommentsArea from '../Tools/CommentsArea'
 import IsLoading from '../Tools/IsLoading'
 import CodeBlock from '../Tools/CodeBlock'
 import ArticleInfo from './ArticleInfo'
@@ -40,7 +40,7 @@ class ArticleDetail extends Component {
           renderers={{code: CodeBlock}}
         />
         <br />
-        <CommentArea />
+        <CommentsArea />
       </div>
     )
 

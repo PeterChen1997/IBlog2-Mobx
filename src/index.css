@@ -119,3 +119,14 @@ p {
   text-align: justify;
 }
 
+.comments-area {
+  border: 1px solid #999;
+  border-radius: 10px;
+}
+
+.container-h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
