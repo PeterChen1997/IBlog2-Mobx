@@ -81,6 +81,7 @@ a:hover {
 /* 解决文本移除 */
 p {
   overflow-wrap: break-word;
+  line-height: 1.7;
 }
 
 /* 自定义list */
@@ -122,7 +123,7 @@ p {
 .comments-area {
   border: 1px solid #999;
   border-radius: 10px;
-  
+  width: 100%;
 }
 
 .container-h3 {
