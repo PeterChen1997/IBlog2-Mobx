@@ -39,7 +39,7 @@ class ArticleDetail extends Component {
           source={currentArticle.content}
           renderers={{code: CodeBlock}}
         />
-        <CommentsArea />
+        <CommentsArea article={currentArticle} />
         <br />
       </div>
     )
